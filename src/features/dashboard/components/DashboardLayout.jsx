@@ -1,22 +1,27 @@
 import React, { useEffect } from "react";
 import Header from "./Header";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import useCookie from "react-use-cookie";
-
+import useUserStore from "../../../store/useUserStore";
 const DashboardLayout = () => {
+  const [token] = useCookie("token");
+  const [userCookie, setUserCookie] = useCookie("user");
+  const { user, setUser } = useUserStore();
 
-  const [token, setToken] = useCookie("token");
-
-  if(!token) {
+  if (!token) {
     return <Navigate to="/" />;
   }
+
+  useEffect(() => {
+    setUser(JSON.parse(userCookie));
+  },[])
 
   return (
     <>
       <Header />
       <Outlet />
-      <Toaster position="top-right"/>
+      <Toaster position="top-right" />
     </>
   );
 };

@@ -29,7 +29,7 @@ const Login = () => {
     const json = await res.json();
 
     if (res.status === 200) {
-      toast.success("Login successfully");
+      toast.success("Login Successfully");
       setToken(json.token);
       setUserCookie(JSON.stringify(json.user));
       navigate("/dashboard");

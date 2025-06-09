@@ -7,6 +7,7 @@ import ProductsPage from "../features/products/Pages/ProductsPage";
 import SettingsPage from "../features/settings/pages/settingsPage";
 import UserProfilePage from "../features/user-profile/pages/UserProfilePage";
 import WidgetPage from "../features/widget/Pages/WidgetPage";
+import blogRoute from "./blogRoute";
 
 const dashboardRoute = [
   {
@@ -45,6 +46,7 @@ const dashboardRoute = [
         path: "settings",
         element: <SettingsPage />,
       },
+      ...blogRoute,
     ],
   },
 ];

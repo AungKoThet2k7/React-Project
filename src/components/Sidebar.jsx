@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { HiHome, HiX } from "react-icons/hi";
-import { HiMiniSquare3Stack3D } from "react-icons/hi2";
+import { HiMiniSquare3Stack3D, HiPhoto } from "react-icons/hi2";
 import { LuChevronDown, LuMinus } from "react-icons/lu";
 import { MdOutlineWidgets } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -14,10 +14,15 @@ const Sidebar = ({ handleSidebar, isOpen }) => {
     <div
       className={`${
         isOpen ? "translate-x-0" : "-translate-x-full"
-      } duration-300 fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto bg-gray-800 w-64`}
+      } duration-300 fixed top-0 left-0 z-40 h-screen shadow-md overflow-y-auto bg-gray-800 w-64`}
     >
-      <h1 className="font-bold bg-white text-lg text-center mb-5 text-sky-600">VELZON</h1>
-      <div className="flex items-center justify-between">
+      <img
+        className="h-[58px] bg-white w-full py-1"
+        src="../src/assets/react-logo.svg"
+        alt=""
+      />
+      {/* <div className="p-5 font-bold bg-white text-lg text-center mb-5 text-sky-600">VELZON</div> */}
+      <div className="flex items-center justify-between p-4">
         <h5 className="text-base font-semibold text-gray-400 uppercase">
           Menu
         </h5>
@@ -29,7 +34,7 @@ const Sidebar = ({ handleSidebar, isOpen }) => {
           <span className="sr-only">Close menu</span>
         </button>
       </div>
-      <div className="py-4 overflow-y-auto">
+      <div className="p-4 overflow-y-auto">
         <ul className="space-y-2 font-medium">
           <li>
             <button
@@ -101,6 +106,20 @@ const Sidebar = ({ handleSidebar, isOpen }) => {
               <div className="bg-sky-400 text-white rounded-md text-sm px-2">
                 New
               </div>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/dashboard/blog"
+              className="flex items-center group w-full p-2 text-base transition duration-75 rounded-lg group text-white hover:bg-gray-700"
+            >
+              <HiPhoto
+                className="text-gray-400 group-hover:text-white"
+                size={20}
+              />
+              <span className="ms-3 text-left rtl:text-right whitespace-nowrap">
+                Blog
+              </span>
             </Link>
           </li>
           <li>

@@ -3,16 +3,19 @@ import Avatar from "react-avatar";
 import { LuLogOut, LuMenu, LuSettings, LuUser } from "react-icons/lu";
 
 import Sidebar from "../../../components/sidebar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useCookie, { removeCookie } from "react-use-cookie";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import useUserStore from "../../../store/useUserStore";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
-  const [userCookie, setUserCookie] = useCookie("user");
+  const {user:{name, profile_image}} = useUserStore();
 
-  const { name, profile_image } = JSON.parse(userCookie);
+  const navigate = useNavigate();
 
   const handleSidebar = () => {
     setIsOpen(!isOpen);
@@ -23,8 +26,21 @@ const Header = () => {
   };
 
   const handleLogOut = () => {
-    removeCookie("token");
-    removeCookie("user");
+    Swal.fire({
+      title: "Are you sure to logout?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#38bdf8",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirm",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removeCookie("token");
+        removeCookie("user");
+        navigate("/");
+        toast.success("Logout Successfully");
+      }
+    });
   };
 
   return (
@@ -68,6 +84,7 @@ const Header = () => {
         <div className="absolute right-3 mt-16 py-2 w-52 bg-white rounded-md shadow z-10">
           <Link
             to="/dashboard/user-profile"
+            onClick={handleProfile}
             className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           >
             <LuUser size={18} />
@@ -75,13 +92,13 @@ const Header = () => {
           </Link>
           <Link
             to="/dashboard/Settings"
+            onClick={handleProfile}
             className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           >
             <LuSettings size={18} />
             <span>Settings</span>
           </Link>
           <Link
-            to={"/"}
             onClick={handleLogOut}
             className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           >
