@@ -44,7 +44,7 @@ const BlogTableRow = () => {
       </td>
       <td className="px-6 py-4">
         <div className="flex gap-2">
-          <Link to={"/"} className="text-white bg-sky-400 p-2 rounded-md">
+          <Link className="text-white bg-sky-400 p-2 rounded-md">
             <HiOutlinePencilSquare size={16} />
           </Link>
           <button className="text-white bg-red-400 p-2 rounded-md">

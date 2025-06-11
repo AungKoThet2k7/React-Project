@@ -3,25 +3,73 @@ import { HiHome, HiX } from "react-icons/hi";
 import { HiMiniSquare3Stack3D, HiPhoto } from "react-icons/hi2";
 import { LuChevronDown, LuMinus } from "react-icons/lu";
 import { MdOutlineWidgets } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useResolvedPath } from "react-router-dom";
+import SidebarList from "./sidebarList";
 const Sidebar = ({ handleSidebar, isOpen }) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { pathname } = useResolvedPath();
 
-  const handleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
+  const sidebarItems = [
+    {
+      name: "Dashboard",
+      icon: <HiHome size={20} />,
+      childrens: [
+        {
+          name: "Analytics",
+          icon: <LuMinus />,
+          path: "/dashboard/analytics",
+        },
+        {
+          name: "E-Commerce",
+          icon: <LuMinus />,
+          path: "/dashboard/ecommerce",
+        },
+        {
+          name: "Products",
+          icon: <LuMinus />,
+          path: "/dashboard/products",
+        },
+      ],
+    },
+    {
+      name: "Blog",
+      icon: <HiPhoto size={20} />,
+      childrens: [
+        {
+          name: "Blog",
+          icon: <LuMinus />,
+          path: "/dashboard/blog",
+        },
+        {
+          name: "Blog Create",
+          icon: <LuMinus />,
+          path: "/dashboard/blog/create",
+        },
+      ],
+    },
+    {
+      name: "Advance UI",
+      icon: <HiMiniSquare3Stack3D size={20} />,
+      noti: true,
+      path: "/dashboard/advance-ui",
+    },
+    {
+      name: "Widgets",
+      icon: <MdOutlineWidgets size={20} />,
+      path: "/dashboard/widgets",
+    },
+  ];
+
   return (
-    <div
+    <aside
       className={`${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } duration-300 fixed top-0 left-0 z-40 h-screen shadow-md overflow-y-auto bg-gray-800 w-64`}
     >
       <img
-        className="h-[58px] bg-white w-full py-1"
-        src="../src/assets/react-logo.svg"
+        className=" h-[48px] sm:h-[58px] bg-white w-full py-1"
+        src="../src/assets/React-logo.svg"
         alt=""
       />
-      {/* <div className="p-5 font-bold bg-white text-lg text-center mb-5 text-sky-600">VELZON</div> */}
       <div className="flex items-center justify-between p-4">
         <h5 className="text-base font-semibold text-gray-400 uppercase">
           Menu
@@ -36,7 +84,11 @@ const Sidebar = ({ handleSidebar, isOpen }) => {
       </div>
       <div className="p-4 overflow-y-auto">
         <ul className="space-y-2 font-medium">
-          <li>
+          {sidebarItems.map((item, index) => (
+            <SidebarList key={index} pathname={pathname} item={item} />
+          ))}
+
+          {/* <li>
             <button
               onClick={handleDropdown}
               className="flex items-center group w-full p-2 text-base transition duration-75 rounded-lg group text-white hover:bg-gray-700"
@@ -90,8 +142,9 @@ const Sidebar = ({ handleSidebar, isOpen }) => {
                 </Link>
               </li>
             </ul>
-          </li>
-          <li>
+          </li> */}
+
+          {/* <li>
             <Link
               to="/dashboard/advance-ui"
               className="flex items-center group w-full p-2 text-base transition duration-75 rounded-lg group text-white hover:bg-gray-700"
@@ -135,10 +188,10 @@ const Sidebar = ({ handleSidebar, isOpen }) => {
                 Widgets
               </span>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
-    </div>
+    </aside>
   );
 };
 
