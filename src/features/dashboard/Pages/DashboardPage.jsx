@@ -3,7 +3,7 @@ import Breadcrumb from "../../../components/Breadcrumb";
 
 const DashboardPage = () => {
   return (
-    <section className=" bg-sky-50">
+    <section>
       <Breadcrumb currentpageTitle="Dashboard" />
     </section>
   );

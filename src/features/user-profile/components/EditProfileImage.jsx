@@ -9,7 +9,7 @@ const EditProfileImage = () => {
 
   const { profile_image } = JSON.parse(userCookie);
 
-  const {setUser} = useUserStore();
+  const { setUser } = useUserStore();
 
   const fileInput = useRef();
 
@@ -56,7 +56,7 @@ const EditProfileImage = () => {
       />
       <button
         onClick={handleUploadPhoto}
-        className="border border-sky-400 hover:bg-sky-400 hover:text-white active:scale-90 duration-200 px-6 py-3 text-black rounded-full font-bold"
+        className="border bg-white border-gray-200 shadow-sm hover:bg-sky-400 hover:text-white active:scale-90 duration-200 px-6 py-3 text-sky-400 rounded-full font-bold"
       >
         Upload Photo
       </button>

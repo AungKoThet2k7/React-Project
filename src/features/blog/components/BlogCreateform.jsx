@@ -1,11 +1,8 @@
 import React, { useRef, useState } from "react";
 import JoditEditor from "jodit-react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 
 const BlogCreateform = () => {
   const editer = useRef();
-  const [content, setContent] = useState("");
   const [value, setValue] = useState("");
 
   return (
@@ -23,7 +20,7 @@ const BlogCreateform = () => {
 
       <div className=" flex flex-col gap-2">
         <label className=" text-gray-900">Short Description</label>
-        <ReactQuill className="h-40" theme="snow" value={content} onChange={setContent} />
+        {/* <ReactQuill className="h-40" theme="snow" value={content} onChange={setContent} /> */}
       </div>
 
       <div className=" flex flex-col gap-2">

@@ -4,7 +4,7 @@ import UserProfileCard from "../components/UserProfileCard";
 
 const UserProfilePage = () => {
  return (
-    <section>
+    <section className="">
       <Breadcrumb currentpageTitle="User Profile" />
       <UserProfileCard />
       </section>

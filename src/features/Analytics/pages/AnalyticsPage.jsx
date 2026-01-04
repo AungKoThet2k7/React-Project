@@ -2,9 +2,11 @@ import React from "react";
 import Breadcrumb from "../../../components/Breadcrumb";
 
 const AnalyticsPage = () => {
-  return <section>
+  return (
+    <section>
       <Breadcrumb currentpageTitle="Analytics" />
-    </section>;
+    </section>
+  );
 };
 
 export default AnalyticsPage;

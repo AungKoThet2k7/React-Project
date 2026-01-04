@@ -2,24 +2,18 @@ import { useState } from "react";
 import Avatar from "react-avatar";
 import { LuLogOut, LuMenu, LuSettings, LuUser } from "react-icons/lu";
 
-import Sidebar from "../../../components/sidebar";
 import { Link, useNavigate } from "react-router-dom";
 import useCookie, { removeCookie } from "react-use-cookie";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useUserStore from "../../../store/useUserStore";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Header = ({ handleSidebar }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const {user:{name, profile_image}} = useUserStore();
 
   const navigate = useNavigate();
-
-  const handleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
 
   const handleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
@@ -48,12 +42,10 @@ const Header = () => {
       <nav className="flex items-center gap-2 sm:gap-3 px-5 py-2">
         <button
           onClick={handleSidebar}
-          className="flex items-center justify-center text-gray-400 hover:text-gray-600"
+          className="flex items-center justify-center text-gray-400 hover:text-gray-600 lg:hidden"
         >
           <LuMenu className="size-6 sm:size-7" />
         </button>
-
-        <Sidebar isOpen={isOpen} handleSidebar={handleSidebar} />
 
         <input
           type="text"

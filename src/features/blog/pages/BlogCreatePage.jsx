@@ -3,10 +3,12 @@ import Breadcrumb from "../../../components/Breadcrumb";
 import BlogCreateform from "../components/BlogCreateform";
 import { LuSave, LuSaveAll, LuSaveOff } from "react-icons/lu";
 import ImageUploadForm from "../components/ImageUploadForm";
+import MultiImageUpload from "../components/MultiImageUpload";
+import { Link, useNavigate } from "react-router-dom";
 
 const BlogCreatePage = () => {
   return (
-    <section className="bg-sky-50 h-[1000vh]">
+    <section className="">
       <Breadcrumb currentpageTitle="Create Blog" />
 
       <nav className="flex justify-between px-5 mb-5">
@@ -16,10 +18,13 @@ const BlogCreatePage = () => {
             <LuSave size={16} />
             <span>Save</span>
           </button>
-          <button className="flex items-center justify-center gap-2 rounded-lg px-4 py-2 bg-gray-300 text-white">
+          <Link
+            to={"/dashboard/blog"}
+            className="flex items-center justify-center gap-2 rounded-lg px-4 py-2 bg-gray-300 text-white"
+          >
             <HiX size={16} />
             <span>Cancel</span>
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -28,8 +33,9 @@ const BlogCreatePage = () => {
           <BlogCreateform />
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-2 flex flex-col gap-5 mb-5">
           <ImageUploadForm />
+          <MultiImageUpload />
         </div>
       </div>
     </section>

@@ -6,20 +6,19 @@ import { Link } from "react-router-dom";
 const BlogTableRow = () => {
   return (
     <tr className="bg-white border-b dark:border-gray-700 border-gray-200">
-      <th
+      <td
         scope="row"
         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
       >
         1
-      </th>
-      <td className="px-6 py-4 flex items-center gap-2">
-        <img src="../src/assets/react-logo.svg" className="w-32 h-16" alt="" />
-        <p className="">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit Dignissimos
-          cumque officiis, voluptas animi non optio.
-        </p>
       </td>
-      <td className="px-6 py-4">Lorem, ipsum dolor.</td>
+      <td className="bg-gray-50 px-6 py-4 flex items-center gap-2">
+        <span className="size-10 flex items-center justify-center">
+          <img src="../src/assets/react-logo.svg" alt="" />
+        </span>
+        <p className=" text-nowrap">Voluptas animi non optio.</p>
+      </td>
+      <td className="px-6 py-4">Blog</td>
       <td className="px-6 py-4">
         <label className="cursor-pointer">
           <input type="checkbox" className="sr-only peer" />
@@ -30,7 +29,7 @@ const BlogTableRow = () => {
         <div className="flex gap-2">
           <input
             type="number"
-            className="px-2 py-1 rounded-md border border-gray-900"
+            className="px-2 py-1 rounded-md border border-gray-900 w-16"
           />
           <button className="p-2 rounded-md bg-sky-400 text-white">
             <LuSave size={16} />
@@ -38,7 +37,7 @@ const BlogTableRow = () => {
         </div>
       </td>
       <td className="px-6 py-4 text-end">
-        <p className="text-gray-900 font-bold">Admin</p>
+        {/* <p className="text-gray-900 font-bold">Admin</p> */}
         <p className="text-gray-400">9/6/2025</p>
         <p className="text-gray-400">9:30 AM</p>
       </td>

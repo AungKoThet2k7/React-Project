@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiHome, HiX } from "react-icons/hi";
 import { HiMiniSquare3Stack3D, HiPhoto } from "react-icons/hi2";
-import { LuChevronDown, LuMinus } from "react-icons/lu";
+import { LuCalendar, LuChevronDown, LuMinus } from "react-icons/lu";
 import { MdOutlineWidgets } from "react-icons/md";
 import { Link, useResolvedPath } from "react-router-dom";
 import SidebarList from "./sidebarList";
@@ -47,6 +47,11 @@ const Sidebar = ({ handleSidebar, isOpen }) => {
       ],
     },
     {
+      name: "Holidays",
+      icon: <LuCalendar size={20} />,
+      path: "/dashboard/holidays",
+    },
+    {
       name: "Advance UI",
       icon: <HiMiniSquare3Stack3D size={20} />,
       noti: true,
@@ -63,24 +68,28 @@ const Sidebar = ({ handleSidebar, isOpen }) => {
     <aside
       className={`${
         isOpen ? "translate-x-0" : "-translate-x-full"
-      } duration-300 fixed top-0 left-0 z-40 h-screen shadow-md overflow-y-auto bg-gray-800 w-64`}
+      } duration-300 fixed top-0 left-0 z-40 h-screen shadow-md overflow-y-auto bg-gray-800 w-64 lg:translate-x-0 lg:sticky`}
     >
-      <img
-        className=" h-[48px] sm:h-[58px] bg-white w-full py-1"
-        src="../src/assets/React-logo.svg"
-        alt=""
-      />
-      <div className="flex items-center justify-between p-4">
-        <h5 className="text-base font-semibold text-gray-400 uppercase">
-          Menu
-        </h5>
-        <button
-          onClick={handleSidebar}
-          className="text-gray-400 bg-transparent hover:bg-gray-600 hover:text-white rounded-lg text-sm inline-flex items-center justify-center"
-        >
-          <HiX size={26} />
-          <span className="sr-only">Close menu</span>
-        </button>
+      <div className="sticky top-0">
+        <Link to={"/dashboard"}>
+          <img
+            className=" h-[48px] sm:h-[58px] bg-white w-full py-1"
+            src="../src/assets/React-logo.svg"
+            alt=""
+          />
+        </Link>
+        <div className="flex items-center justify-between p-4 bg-transparent backdrop-blur-sm">
+          <h5 className="text-base font-semibold text-gray-400 uppercase">
+            Menu
+          </h5>
+          <button
+            onClick={handleSidebar}
+            className="text-gray-400 bg-transparent hover:bg-gray-600 hover:text-white rounded-lg text-sm inline-flex items-center justify-center"
+          >
+            <HiX size={26} />
+            <span className="sr-only">Close menu</span>
+          </button>
+        </div>
       </div>
       <div className="p-4 overflow-y-auto">
         <ul className="space-y-2 font-medium">

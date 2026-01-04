@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Breadcrumb = ({ currentpageTitle }) => {
   return (
     <div className="w-full bg-white border-b border-gray-200 shadow flex p-3 justify-between gap-3 mb-5">
-      <nav className="text-gray-700 font-bold ps-3">{currentpageTitle}</nav>
+      <nav className="text-gray-700 font-medium ps-3">{currentpageTitle}</nav>
       <nav className="flex" aria-label="Breadcrumb">
             <Link
               to={"/dashboard"}

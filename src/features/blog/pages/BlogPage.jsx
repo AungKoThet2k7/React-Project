@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const BlogPage = () => {
   return (
-    <section className="bg-sky-50 h-screen">
+    <section className="bg-gray-100">
       <Breadcrumb currentpageTitle="Blog" />
       <div className="bg-white mx-5 p-5">
         <div className="flex justify-between mb-5">

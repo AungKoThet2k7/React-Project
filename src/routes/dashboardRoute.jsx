@@ -3,6 +3,7 @@ import AdvanceUIPage from "../features/advance-ui/pages/AdvanceUIPage";
 import DashboardPage from "../features/dashboard/Pages/DashboardPage";
 import DashboardLayout from "../features/dashboard/components/DashboardLayout";
 import EcommercePage from "../features/ecommerce/pages/EcommercePage";
+import HolidaysPage from "../features/holidays/pages/HolidaysPage";
 import ProductsPage from "../features/products/Pages/ProductsPage";
 import SettingsPage from "../features/settings/pages/settingsPage";
 import UserProfilePage from "../features/user-profile/pages/UserProfilePage";
@@ -47,6 +48,10 @@ const dashboardRoute = [
         element: <SettingsPage />,
       },
       ...blogRoute,
+      {
+        path: "holidays",
+        element: <HolidaysPage />,
+      },
     ],
   },
 ];

@@ -5,7 +5,7 @@ import router from "./routes/router";
 import "./style.css";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  // <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  // </StrictMode>
 );
